@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ORANGE HRM DEMO PAGE UI TEST">
+    <listeners>
+        <listener class-name="org.orangehrm.ui.listener.Listener"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="D:/Projects/Testing_Frameworks/orange-hrm-demo-ui">
+        <packages>
+            <package name="org.orangehrm.ui.test"/>
+        </packages>
+    </test>
+</suite>

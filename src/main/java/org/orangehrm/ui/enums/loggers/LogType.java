@@ -7,5 +7,4 @@ public enum LogType {
     SKIP,
     WARN,
     INFO,
-    ERROR;
 }

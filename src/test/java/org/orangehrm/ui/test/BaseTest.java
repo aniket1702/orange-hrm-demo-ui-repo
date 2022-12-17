@@ -1,21 +1,30 @@
 package org.orangehrm.ui.test;
 
 import org.orangehrm.ui.drivers.Driver;
+import org.orangehrm.ui.enums.loggers.LogType;
+import org.orangehrm.ui.logger.OrangeHRMDemoLogger;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
-    @Test
-    public void testMethod()
-    {
+
+
+    /* method to initialize the driver */
+    @BeforeTest
+    public void setup() throws InterruptedException {
         Driver.initDriver();
-        System.out.println("Test is Passed");
+        OrangeHRMDemoLogger.log(LogType.PASS,"Driver initialized...");
+        Thread.sleep(3000);
     }
 
+
+    /* method to close the browser */
     @AfterTest
-    public void closeBrowser()
+    public void tearDown()
     {
         Driver.closeBrowser();
+        OrangeHRMDemoLogger.log(LogType.PASS,"Driver closed...");
+
     }
 }

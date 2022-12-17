@@ -1,5 +1,6 @@
 package org.orangehrm.ui.listener;
 
+import org.orangehrm.ui.logger.LogManager;
 import org.testng.*;
 
 public class Listener implements ITestListener, ISuiteListener {
@@ -7,6 +8,7 @@ public class Listener implements ITestListener, ISuiteListener {
     @Override
     public void onStart(ISuite suite) {
         ISuiteListener.super.onStart(suite);
+        LogManager.propertyConfigurator();
     }
 
     @Override

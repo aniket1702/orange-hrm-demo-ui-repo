@@ -9,22 +9,17 @@ import org.testng.annotations.BeforeTest;
 public class BaseTest {
 
 
-
     /* method to initialize the driver */
     @BeforeTest
     public void setup() throws InterruptedException {
         Driver.initDriver();
-        OrangeHRMDemoLogger.log(LogType.PASS,"Driver initialized...");
         Thread.sleep(3000);
     }
 
 
     /* method to close the browser */
     @AfterTest
-    public void tearDown()
-    {
+    public void tearDown() {
         Driver.closeBrowser();
-        OrangeHRMDemoLogger.log(LogType.PASS,"Driver closed...");
-
     }
 }

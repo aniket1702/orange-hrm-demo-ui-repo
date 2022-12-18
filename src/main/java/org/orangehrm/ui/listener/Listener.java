@@ -1,6 +1,8 @@
 package org.orangehrm.ui.listener;
 
+import org.orangehrm.ui.enums.loggers.LogType;
 import org.orangehrm.ui.logger.LogManager;
+import org.orangehrm.ui.logger.OrangeHRMDemoLogger;
 import org.testng.*;
 
 public class Listener implements ITestListener, ISuiteListener {
@@ -18,22 +20,22 @@ public class Listener implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ITestListener.super.onTestStart(result);
+        OrangeHRMDemoLogger.log(LogType.PASS,result.getMethod().getConstructorOrMethod().getMethod().getName() +" Started...");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        ITestListener.super.onTestSuccess(result);
+        OrangeHRMDemoLogger.log(LogType.PASS,result.getMethod().getConstructorOrMethod().getMethod().getName() +" PASSED...");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ITestListener.super.onTestFailure(result);
+        OrangeHRMDemoLogger.log(LogType.FAIL,result.getMethod().getConstructorOrMethod().getMethod().getName() +" FAILED...");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        ITestListener.super.onTestSkipped(result);
+        OrangeHRMDemoLogger.log(LogType.SKIP,result.getMethod().getConstructorOrMethod().getMethod().getName() +" SKIPPED...");
     }
 
     @Override
@@ -48,11 +50,11 @@ public class Listener implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ITestContext context) {
-        ITestListener.super.onStart(context);
+        OrangeHRMDemoLogger.log(LogType.INFO,"======================== Start :-" +context.getName() +"========================");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        ITestListener.super.onFinish(context);
+        OrangeHRMDemoLogger.log(LogType.INFO,"======================== Finish :- " + context.getName() + "========================");
     }
 }

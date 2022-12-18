@@ -14,6 +14,7 @@ public final  class OrangeHRMDemoLogger {
     private static final Consumer<String> SKIP = LogManager::warn;
     private static final Consumer<String> WARN = LogManager::warn;
     private static final Consumer<String> TRACE = LogManager::trace;
+    private static final Consumer<String> FATAL = LogManager::fatal;
 
     private static final Map<LogType,Consumer<String>> MAP=new EnumMap<>(LogType.class);
 
@@ -22,7 +23,8 @@ public final  class OrangeHRMDemoLogger {
         MAP.put(LogType.FAIL, FAIL);
         MAP.put(LogType.SKIP, SKIP);
         MAP.put(LogType.WARN, WARN);
-        MAP.put(LogType.INFO, TRACE);
+        MAP.put(LogType.TRACE, TRACE);
+        MAP.put(LogType.INFO, FATAL);
     }
 
     public static void log(LogType status, String message) {

@@ -25,5 +25,6 @@ public final class LogManager {
         LOGGER.trace(message);
     }
     public static void warn(String message) { LOGGER.warn(message); }
+    public static void fatal(String message) { LOGGER.fatal(message); }
 
 }

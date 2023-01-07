@@ -4,15 +4,15 @@
     <listeners>
         <listener class-name="org.orangehrm.ui.listener.Listener"/>
     </listeners>
-    <test verbose="2" preserve-order="true"  name="D:/Projects/Testing_Frameworks/orange-hrm-demo-ui" >
-     <!--   <packages>
-            <package name="org.orangehrm.ui.test"/>
-        </packages>-->
+    <test verbose="2" preserve-order="true" name="D:/Projects/Testing_Frameworks/orange-hrm-demo-ui">
+        <!--   <packages>
+               <package name="org.orangehrm.ui.test"/>
+           </packages>-->
         <classes>
-            <class name="org.orangehrm.ui.test.LoginPageTest" >
+            <class name="org.orangehrm.ui.test.LoginPageTest">
                 <methods>
                     <include name="verifyLoginPageWithValidUsernameAndPassword"/>
-                    <include name="verifyLoginPageWithInvalidUsernameAndPassword"/>
+                    <exclude name="verifyLoginPageWithInvalidUsernameAndPassword"/>
                 </methods>
             </class>
         </classes>

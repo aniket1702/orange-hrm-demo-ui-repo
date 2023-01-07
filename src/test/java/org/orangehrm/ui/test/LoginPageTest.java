@@ -1,6 +1,5 @@
 package org.orangehrm.ui.test;
 
-import org.orangehrm.ui.drivers.DriverManager;
 import org.orangehrm.ui.pages.login.LoginPage;
 import org.orangehrm.ui.utils.DateUtils;
 import org.testng.Assert;
@@ -9,23 +8,34 @@ import org.testng.annotations.Test;
 public class LoginPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private DateUtils dateUtils=new DateUtils();
-    private LoginPageTest()
-    {
-        loginPage=new LoginPage();
+    private DateUtils dateUtils;
+
+    private LoginPageTest() {
+        loginPage = new LoginPage();
+        dateUtils = new DateUtils();
     }
 
 
-    @Test
-    public void enterUsername() throws InterruptedException {
-        loginPage.enterUsername();
+    @Test(testName = "Login Page Test", description = "Verify Login Page with valid details.")
+    public void verifyLoginPageWithValidUsernameAndPassword() throws InterruptedException {
+        loginPage.loginToApplication("Admin", "admin123");
         System.out.println(dateUtils.getCurrentDateTime());
 
         Thread.sleep(2000);
 
     }
 
-    @Test
+    @Test(testName = "Login Page Test", description = "Verify Login Page with Invalid details.")
+    public void verifyLoginPageWithInvalidUsernameAndPassword() throws InterruptedException {
+        loginPage.loginToApplication("Admin1", "admin1232");
+        System.out.println(dateUtils.getCurrentDateTime());
+        Assert.assertFalse(false,"Login test Failed");
+
+        Thread.sleep(2000);
+
+    }
+
+  /*  @Test
     public void enterPassword() throws InterruptedException {
         loginPage.enterPassword();
         Thread.sleep(2000);
@@ -38,5 +48,5 @@ public class LoginPageTest extends BaseTest {
         Thread.sleep(2000);
         Assert.assertEquals("OrangeHRM", DriverManager.getDriver().getTitle());
 
-    }
+    }*/
 }

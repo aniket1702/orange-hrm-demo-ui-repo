@@ -1,0 +1,28 @@
+name: Run Web Test for Orange HRM Demo UI
+on:
+    push:
+        branches:
+            - master
+        pull_request:
+            types:[opened,synchronize]
+        issues:
+            types:
+                - opened
+                - labeled
+    workflow_dispatch:
+
+jobs:
+    run-web-test:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Pull the project into the machine
+                uses: actions/checkout/@v3
+
+            -   name: setup Java in Github actions
+                uses: actions/setup-java@v3
+                with:
+                    distribution: 'temurin'
+                    java-version: '11'
+
+            -   name: Run Unit Test
+                run: mvn clean install

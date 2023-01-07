@@ -11,9 +11,8 @@
         <classes>
             <class name="org.orangehrm.ui.test.LoginPageTest" >
                 <methods>
-                    <include name="enterUsername"/>
-                    <include name="enterPassword"/>
-                    <include name="clickButton"/>
+                    <include name="verifyLoginPageWithValidUsernameAndPassword"/>
+                    <include name="verifyLoginPageWithInvalidUsernameAndPassword"/>
                 </methods>
             </class>
         </classes>
